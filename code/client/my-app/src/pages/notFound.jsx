@@ -3,12 +3,12 @@ import React from 'react';
 //sfc
 //import './home.css'
 import Navbar from './../components/navbar';
-const Register = () => {
+const NotFound = () => {
     return (<>
         <Navbar></Navbar>
         <div >
             <h1>
-                Register page
+                NotFound page
             </h1>
         </div>
 
@@ -16,4 +16,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default NotFound;

@@ -1,0 +1,48 @@
+.main_h1_home{
+    position: relative;
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h1_home{
+    font-family: 'Syncopate', sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 3vw;
+    line-height: 1.2;
+    font-size: 3vw;
+    text-align: center;
+    
+}
+.span {
+      display: block;
+      font-size: 10vw;
+      letter-spacing: -1.3vw;
+      letter-spacing: 2vw;
+    }
+.h1_home_info{
+    font-size: 1.5vw;
+text-align: center;
+} 
+
+main {
+    width: 80vw;
+    left: 10%;
+    height: 40vh;
+    color: rgb(37, 25, 25);
+    position: relative;
+    padding: 1rem;
+}
+
+
+video{
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+

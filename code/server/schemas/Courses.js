@@ -13,28 +13,19 @@ const UserSchema = new mongoose.Schema(
             id_stu: {
                 type: String,
                 require: true,
-                min: 3,
-                max: 20,
+                min: 8,
+                max: 9,
                 unique: true,
             },
             grade: {
-                type: String,
+                type: Number,
                 require: true,
-                min: 3,
-                max: 20,
+                min: 1,
+                max: 3,
                 unique: true,
             }
         }
         ],
-        password: {
-            type: String,
-            required: true,
-            min: 6,
-        },
-        isAdmin: {
-            type: Boolean,
-            default: false,
-        },
     },
     { timestamps: true }
 );
