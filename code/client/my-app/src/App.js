@@ -7,8 +7,23 @@ import Register from './pages/register';
 import NotFound from './pages/notFound';
 import { useSelector, useDispatch } from 'react-redux';
 
+import getCourse from "./api/getCourse";
+import allInfoCourses from "./api/getAllCoursesMoodle";
 function App() {
   const user = useSelector(state => state.account)
+
+  let info = {
+    "Coursesid": "341111",
+    "lecturersId": "123123123"
+  }
+  allInfoCourses().then(info => {
+    console.log(info);
+  }).catch(err => {
+    window.alert("err");
+  })
+
+
+
   return (
     <React.Fragment>
       <Switch>

@@ -19,6 +19,12 @@ const UserSchema = new mongoose.Schema(
             required: true,
             min: 1,
         },
+        lecturersId: {
+            type: String,
+            require: true,
+            min: 3,
+            max: 20,
+        },
     },
     { timestamps: true }
 );

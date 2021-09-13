@@ -6,7 +6,6 @@ import './home.css'
 import Navbar from './../components/navbar';
 
 
-
 const Home = () => {
     return (<>
         <Navbar></Navbar>
@@ -14,7 +13,7 @@ const Home = () => {
             <div className="main_h1_home">
                 <h1 className="h1_home">
                     Home
-                    <span className="span">Model</span>
+                    <span className="span">Moodle</span>
                 </h1>
                 <h1 className="h1_home_info">Advanced digital store</h1>
             </div>

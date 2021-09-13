@@ -12,7 +12,8 @@ router.post('/register', async (req, res) => {
     const user = await new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        lecturersId: req.body.lecturersId
     })
     try {
         await user.save();
@@ -22,10 +23,6 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.get('/11', async (req, res) => {
-    res.json("sdfsdfsdf");
-    res.send("welcome")
-})
 
 //LOGIN
 router.post("/login", async (req, res) => {
@@ -48,6 +45,12 @@ router.post("/login", async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+
+router.get('/11', async (req, res) => {
+    res.json("sdfsdfsdf");
+    res.send("welcome")
+})
 
 
 

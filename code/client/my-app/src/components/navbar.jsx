@@ -12,7 +12,6 @@ export default function Navbar() {
     const LogOutAccount = () => {
         dispatch(account(null));
         dispatch(logOut());
-
     }
     return (
         <div>
