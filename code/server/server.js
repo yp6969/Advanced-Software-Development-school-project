@@ -8,7 +8,7 @@ const dotenv = require("dotenv");//npm install dotevn - secure access to env fil
 
 const userRoute = require("./router/user");
 const loginRoute = require("./router/login");
-
+const coursesRoute = require("./router/cours");
 
 
 const port = "5555";
@@ -30,7 +30,7 @@ app.use(cors());
 
 //app.use("/users", userRoute); טיפול בבעית רוטר
 app.use("/login", loginRoute);
-
+app.use("/course", coursesRoute);
 
 app.get('/', (req, res) => {
     console.log("welcome!");
