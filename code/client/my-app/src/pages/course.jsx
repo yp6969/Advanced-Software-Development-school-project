@@ -116,7 +116,7 @@ export default function Course(props) {
                             {allCoursesUser[ind].studentAndGrade.map(element =>
                                 <tr>
                                     <th>
-                                        gal
+                                        yair
                                     </th>
                                     <th>
                                         {element.id_stu}
