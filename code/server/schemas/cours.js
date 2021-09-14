@@ -36,9 +36,15 @@ const CoursSchema = new mongoose.Schema(
                 min: 1,
                 max: 5,
             }
+        }],
+        courseDetails: {
+            type: String,
+            min: 0,
+            max: 1000,
+            unique: true,
         }
-        ],
     },
+
     { timestamps: true }
 );
 

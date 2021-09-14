@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 
 router.post('/creatCours', async (req, res) => {
-    console.log("creatCours");
+
     const cours = await new Course({
         CoursesName: req.body.CoursesName,
         Coursesid: req.body.Coursesid,
@@ -151,6 +151,25 @@ router.post("/getCourse", async (req, res) => {
             }
             else {
                 res.status(200).json(data)
+            }
+        })
+    } catch (err) {
+        res.status(501).json(err)
+    }
+});
+
+router.post('/allUserCourses', async function (req, res) {
+    try {
+        Course.find({}, (err, data) => {
+            if (err) {
+                res.status(500).json(err)
+            } else {
+                let allData = [];
+                data.forEach(element => {
+                    if (element.lecturersIds.includes(req.body.lecturersId))
+                        allData.push(element);
+                });
+                res.status(200).json(allData)
             }
         })
     } catch (err) {

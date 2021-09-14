@@ -9,20 +9,15 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import getCourse from "./api/getCourse";
 import allInfoCourses from "./api/getAllCoursesMoodle";
+import createCourse from "./api/createCourse";
+
+
+import Profile from "./pages/profile";
+import AllCourses from "./pages/allCourses";
+import AllUserCourses from "./pages/allUserCourses";
+import Course from "./pages/course";
 function App() {
   const user = useSelector(state => state.account)
-
-  let info = {
-    "Coursesid": "341111",
-    "lecturersId": "123123123"
-  }
-  allInfoCourses().then(info => {
-    console.log(info);
-  }).catch(err => {
-    window.alert("err");
-  })
-
-
 
   return (
     <React.Fragment>
@@ -35,6 +30,17 @@ function App() {
         </Route>
         <Route path="/register" >
           {user ? <Redirect to="/" /> : <Register />}
+        </Route>
+        <Route path="/allCourses" >
+          <AllCourses></AllCourses>
+        </Route>
+        <Route path="/AllUserCourses" >
+          <AllUserCourses></AllUserCourses>
+        </Route>
+        <Route path="/profile" >
+          <Profile></Profile>
+        </Route>
+        <Route path="/course/:id" component={(props) => <Course  {...props}></Course>}>
         </Route>
         <Route path="/not-found" component={NotFound}></Route>
         <Redirect to="/not-found"></Redirect>

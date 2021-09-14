@@ -29,3 +29,16 @@ export const account = (account) => {
         payload: account ? account : null
     }
 }
+
+export const loadAllCourses = (courses) => {
+    return {
+        type: 'loadCourses',
+        payload: courses ? courses : null
+    }
+}//for allCoursesReducer
+export const loadAllUserCourses = (courses) => {
+    return {
+        type: 'loadAllUserCourses',
+        payload: courses ? courses : null
+    }
+}//fo

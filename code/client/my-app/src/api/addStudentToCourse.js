@@ -1,11 +1,13 @@
-export default function createCourse(data) {
+//addStudentToCourse.
+export default function addStudentToCourse(data) {
     const axios = require('axios');
-    return axios.post('http://localhost:5555/course/creatCours',
+    console.log("addStudentToCourse");
+    console.log(data);
+    return axios.post('http://localhost:5555/course/addStudentAndGrade',
         {
-            "CoursesName": data.CoursesName,
+            "lecturersId": data.lecturersId,
             "Coursesid": data.Coursesid,
-            "lecturersIds": data.lecturersIds,
-            "studentAndGrade": data.studentAndGrade || []
+            "studentAndGrade": data.studentAndGrade
 
         }).then(function (response) {
             const Course = response.data;
@@ -21,7 +23,7 @@ export default function createCourse(data) {
     "lecturersIds": ["209338112"],
   }
 
-  createCourse(info).then(info => {
+  addStudentToCourse(info).then(info => {
     console.log(info);
   }).catch(err => {
     window.alert("err");

@@ -25,8 +25,19 @@ const UserSchema = new mongoose.Schema(
             min: 3,
             max: 20,
         },
+        type: {
+            type: String,
+            require: true,
+            min: 3,
+            max: 20,
+        },
+        img: {
+            type: String,
+            require: true,
+            min: 3,
+            max: 20,
+        },
     },
     { timestamps: true }
 );
-
 module.exports = mongoose.model("User", UserSchema);
