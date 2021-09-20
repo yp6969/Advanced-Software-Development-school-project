@@ -8,7 +8,8 @@ export default function getUser(user) {
             email: response.data.email,
             password: response.data.password,
             username: response.data.username,
-            lecturersId: response.data.lecturersId
+            lecturersId: response.data.lecturersId,
+            img: response.data.img
         };
         return user;
     }).catch(function (error) {

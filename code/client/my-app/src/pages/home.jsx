@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 //sfc
 import './home.css'
 import Navbar from './../components/navbar';
+import allInfoCourses from '../api/getAllCoursesMoodle';
 import getAllUserCourses from '../api/getAllUserCourses';
-import { loadAllUserCourses } from '../actions/index';
+import { loadAllUserCourses, loadAllCourses } from '../actions/index';
 import { useSelector, useDispatch } from 'react-redux';
 const Home = () => {
     const account = useSelector(state => state.account)
@@ -28,7 +29,12 @@ const Home = () => {
     }).catch(err => {
         window.alert("err");
     })
-
+    allInfoCourses().then(info => {
+        console.log(info);
+        dispatch(loadAllCourses(info))
+    }).catch(err => {
+        window.alert("err");
+    })
     return (<>
         <Navbar></Navbar>
         <div className="main_home_page">
@@ -37,9 +43,7 @@ const Home = () => {
                     Home
                     <span className="span">Moodle</span>
                 </h1>
-                <h1 className="h1_home_info">Advanced digital store</h1>
             </div>
-            <h1>bla bla bla</h1>
         </div>
     </>
     );

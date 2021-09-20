@@ -1,40 +1,58 @@
-import { useRef } from "react";
-//import "./allCourses.css";
 
+import "./allCourses.css";
 import { useSelector, useDispatch } from 'react-redux';
-import { loadAllCourses } from '../actions/index';
-
 import Navbar from "../components/navbar";
 
-import allInfoCourses from "../api/getAllCoursesMoodle";
-
-
-
-
 export default function AllCourses() {
-
     const allCourses = useSelector(state => state.allCourses)
-    const dispatch = useDispatch();
-
-    console.log(allCourses);
-
-
-
-
-
     return (
         <>
             <Navbar></Navbar>
-            <table >
-                {allCourses.namesAndIds.map(element =>
-                    <tr>
-                        {console.log(element)}
-                        <th>name: {element.name}</th>
-                        <th>id: {element.Coursesid}</th>
-                    </tr>
-                )}
-            </table>
+            <h1 className="h1_home">All University Courses</h1>
+            <div className="allPage">
+                <div className="containerAllCourses">
+                    <div className="allCoursesBox">
+                        <table className="tableAllCourses">
+                            <thead>
+                                <tr className="trHeadHAllCourses">
+                                    <th className="thHeadHAllCourses">
+                                        course name
+                                    </th>
+                                    <th className="thHeadHAllCourses">
+                                        course id
+                                    </th>
+                                    <th className="thHeadHAllCourses">
+                                        sum student
+                                    </th>
+                                </tr>
+                            </thead>
+                            {allCourses.namesAndIds.map(element =>
+                                <tr className="trAllCourses">
+                                    {console.log(element)}
+                                    <th className="thAllCourses"> {element.name}</th>
+                                    <th className="thAllCourses"> {element.Coursesid}</th>
+                                    <th className="thAllCourses"> {element.Coursesid}</th>
+                                </tr>
+                            )}
+                        </table>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }
 
+/*
+<div className="containerAllCourses">
+                <table className="tableAllCourses">
+                    {allCourses.namesAndIds.map(element =>
+                        <tr className="trAllCourses">
+                            {console.log(element)}
+                            <th>name: {element.name}</th>
+                            <th>id: {element.Coursesid}</th>
+                        </tr>
+                    )}
+                </table>
+            </div>
+
+*/

@@ -63,7 +63,7 @@ router.get("/:id", async (req, res) => {
         //user._doc is all the user 
         //we do not want the clint to see the password and createdAt,updatedAt
         const { password, createdAt, updatedAt, ...other } = user._doc
-        res.status(200).json(other)
+        res.status(200).json(user)
     } catch (err) {
         res.status(500).json(err)
     }

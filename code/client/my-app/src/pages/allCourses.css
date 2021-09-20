@@ -1,0 +1,52 @@
+.allPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerAllCourses{
+    background-color: #f0f2f59c;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    height: 70vh;
+}
+.allCoursesBox{
+    margin-top: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tableAllCourses{
+    width: 50vw;
+    text-transform: uppercase;
+    line-height: 1.2;
+    flex-grow: 1;
+    margin: 10px;
+    
+    background-color: #ffffff;
+}
+.trHeadHAllCourses{
+    
+    font-size: 3vh;
+    color: #302c2c;
+    background-color: #ffffff; 
+}
+.trAllCourses{
+    color: #302c2c;
+    background-color: #ffffff;
+    border-bottom: 0.5vh solid black;
+}
+.thAllCourses{
+    color: #000000;
+    background-color: #c6d1d0;
+}
+.h1_home{
+    font-family: 'Syncopate', sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3vw;
+    line-height: 1.2;
+    font-size: 3vw;
+    text-align: center;
+}
+

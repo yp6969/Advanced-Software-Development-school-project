@@ -21,9 +21,14 @@ const CoursSchema = new mongoose.Schema(
             require: true,
             min: 3,
             max: 20,
-            unique: true,
         }],
         studentAndGrade: [{
+            nameStudent: {
+                type: String,
+                require: true,
+                min: 1,
+                max: 10,
+            },
             id_stu: {
                 type: String,
                 require: true,
@@ -41,11 +46,10 @@ const CoursSchema = new mongoose.Schema(
             type: String,
             min: 0,
             max: 1000,
-            unique: true,
         }
     },
 
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Courses", CoursSchema);
+module.exports = mongoose.model("Course", CoursSchema);

@@ -11,6 +11,7 @@ import getCourse from "./api/getCourse";
 import allInfoCourses from "./api/getAllCoursesMoodle";
 import createCourse from "./api/createCourse";
 
+import CreateNewCourse from "./pages/createCourse";
 
 import Profile from "./pages/profile";
 import AllCourses from "./pages/allCourses";
@@ -18,7 +19,7 @@ import AllUserCourses from "./pages/allUserCourses";
 import Course from "./pages/course";
 function App() {
   const user = useSelector(state => state.account)
-
+  if (user) console.log("yy user");
   return (
     <React.Fragment>
       <Switch>
@@ -32,10 +33,13 @@ function App() {
           {user ? <Redirect to="/" /> : <Register />}
         </Route>
         <Route path="/allCourses" >
-          <AllCourses></AllCourses>
+          {user ? <AllCourses /> : <Redirect to="/" />}
         </Route>
         <Route path="/AllUserCourses" >
-          <AllUserCourses></AllUserCourses>
+          {user ? <AllUserCourses /> : <Redirect to="/" />}
+        </Route>
+        <Route path="/newCourse" >
+          <CreateNewCourse></CreateNewCourse>
         </Route>
         <Route path="/profile" >
           <Profile></Profile>

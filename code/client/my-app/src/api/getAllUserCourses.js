@@ -5,7 +5,6 @@ export default function getAllUserCourses(data) {
       "lecturersId": data.lecturersId
 
     }).then(function (response) {
-      console.log(response);
       const Course = response.data;
       return Course;
     }).catch(function (error) {

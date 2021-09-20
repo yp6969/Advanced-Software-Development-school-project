@@ -3,19 +3,21 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
 
-router.post('/creatCours', async (req, res) => {
+router.post('/creatCourse', async (req, res) => {
 
     const cours = await new Course({
         CoursesName: req.body.CoursesName,
         Coursesid: req.body.Coursesid,
         lecturersIds: req.body.lecturersIds,
-        studentAndGrade: req.body.studentAndGrade
+        studentAndGrade: req.body.studentAndGrade,
+        courseDetails: req.body.courseDetails
     })
     try {
         await cours.save();
         res.status(200).json(cours)
     } catch (err) {
         console.log(err);
+        res.status(500).json(err)
     }
 })
 
@@ -111,8 +113,9 @@ router.post("/deleteStudentAndGrade", async (req, res) => {
         res.status(501).json(err)
     }
 });
-
+//יצירת עדכון ציון סטודנט 
 router.post("/addStudentAndGrade", async (req, res) => {
+
     if (!req.body.Coursesid || !req.body.lecturersId)
         return res.status(403).json("err");
 
@@ -120,6 +123,7 @@ router.post("/addStudentAndGrade", async (req, res) => {
         Course.find({ Coursesid: req.body.Coursesid }, async (err, data) => {
             if (err) res.status(500).json(err)
             else {
+
                 let flag = false
                 let lecturersIds_ = data[0].lecturersIds;
                 lecturersIds_.forEach(element => {

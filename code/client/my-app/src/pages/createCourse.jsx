@@ -2,61 +2,88 @@ import { useRef } from "react";
 import "./Login.css";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { logIn, logOut, incremented, account, loadAllCourses } from '../actions/index';
+import { loadAllUserCourses, incremented, account, loadAllCourses } from '../actions/index';
 
 import getUser from "../api/getUser";
-
+import createCourse from "../api/createCourse";
 import allInfoCourses from "../api/getAllCoursesMoodle";
 
 import getAllUserCourses from "../api/getAllUserCourses";
-export default function Login() {
-    const email = useRef();
-    const password = useRef();
-    const accountIn = useSelector(state => state.accountLogged)
-    const counter = useSelector(state => state.counter)
+import Navbar from "../components/navbar";
+export default function CreateNewCourse() {
+    const courseId = useRef();
+    const courseName = useRef();
+    const courseDetails = useRef();
+    const account = useSelector(state => state.account)
+    var allCoursesUser = useSelector(state => state.allCoursesUser)
     const dispatch = useDispatch();
-
-    const account__ = useSelector(state => state.account)
 
     const handleClick = async (e) => {
 
-    };
+        if (isNaN(courseId.current.value)) {
+            window.alert("course Id need to be a number")
+            return
+        }
+        var info = {
+            "CoursesName": courseName.current.value,
+            "Coursesid": courseId.current.value,
+            "lecturersIds": [account.lecturersId],
+            "studentAndGrade": [],
+            "courseDetails": courseDetails.current.value
+        }
+        console.log(info);
+        createCourse(info).then(res => {
+            console.log(res);
+            if (res) {
+                allCoursesUser.push(info)
+                dispatch(loadAllUserCourses(allCoursesUser))
+                window.alert("new course add successfully completed");
+            } else {
+                window.alert("err1111111");
+            }
+        }).catch(err => {
+            window.alert("err");
+        })
+        allInfoCourses().then(info => {
+            console.log(info);
+            dispatch(loadAllCourses(info))
+        }).catch(err => {
+            window.alert("err");
+        })
+
+    }
 
     return (
-        <div className="login">
-            <div className="loginWrapper">
-                <div className="loginLeft">
-                    <h3 className="loginLogo">Moodle</h3>
-                    <span className="loginDesc">
-                    </span>
-                </div>
-                <div className="loginRight">
-                    <form className="loginBox" onSubmit={handleClick}>
-                        <input
-                            placeholder="Email"
-                            type="email"
-                            required
-                            className="loginInput"
-                            ref={email}
-                        />
-                        <input
-                            placeholder="Password"
-                            type="password"
-                            required
-                            minLength="6"
-                            className="loginInput"
-                            ref={password}
-                        />
-                        <button className="loginButton" type="submit" >
-                            login
-                        </button>
-                        <span className="loginForgot">Forgot Password?</span>
-                        <button className="loginRegisterButton">
-                            Registe
-                        </button>
-                    </form>
-                </div>
+        <>
+            <Navbar></Navbar>
+            <div className="mainCreatCourse">
+                <input
+                    placeholder="course Name"
+                    required
+                    className=""
+                    ref={courseName}
+                    id="1"
+                />
+                <input
+                    placeholder="id number course"
+                    required
+                    minLength="1"
+                    className=""
+                    ref={courseId}
+                    id="2"
+                />
+                <input
+                    placeholder="course Details"
+                    required
+                    minLength="1"
+                    className=""
+                    ref={courseDetails}
+                    id="3"
+                />
+                <button onClick={handleClick} >
+                    create
+                </button>
             </div>
-        </div>
+        </>
     );
 }
