@@ -30,7 +30,7 @@ function App() {
           {user ? <Redirect to="/" /> : <Login />}
         </Route>
         <Route path="/register" >
-          {user ? <Redirect to="/" /> : <Register />}
+          <Register></Register>
         </Route>
         <Route path="/allCourses" >
           {user ? <AllCourses /> : <Redirect to="/" />}
@@ -42,7 +42,7 @@ function App() {
           <CreateNewCourse></CreateNewCourse>
         </Route>
         <Route path="/profile" >
-          <Profile></Profile>
+          {user ? <Profile /> : <Redirect to="/" />}
         </Route>
         <Route path="/course/:id" component={(props) => <Course  {...props}></Course>}>
         </Route>
@@ -52,7 +52,6 @@ function App() {
     </React.Fragment>
   );
 }
-
 export default App;
 
 

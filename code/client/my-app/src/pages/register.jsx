@@ -13,8 +13,10 @@ export default function Register() {
     const email = useRef();
     const lecturersId = useRef();
     const history = useHistory();
-    const handleNewUser = (e) => {
+    const handleNewUser = async (e) => {
+        e.preventDefault();
         if (password1.current.value !== password2.current.value) {
+            window.alert("password error")
             return
         }
         const info = {
@@ -27,7 +29,7 @@ export default function Register() {
             window.alert("user saved");
             history.push("/login");
         }).catch(err => {
-            window.alert("err");
+            window.alert("error server");
         })
     }
 
@@ -52,6 +54,7 @@ export default function Register() {
                         <input
                             placeholder="password"
                             required
+                            type="password"
                             minLength="1"
                             className="registerInput"
                             ref={password1}
@@ -61,6 +64,7 @@ export default function Register() {
                         <input
                             placeholder="password confirm"
                             required
+                            type="password"
                             minLength="1"
                             className="registerInput"
                             ref={password2}

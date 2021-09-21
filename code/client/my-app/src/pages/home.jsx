@@ -24,16 +24,15 @@ const Home = () => {
             }
             courses.push(userCourses);
         }
-        console.log(courses);
         dispatch(loadAllUserCourses(courses))
     }).catch(err => {
-        window.alert("err");
+        window.alert("server error");
     })
     allInfoCourses().then(info => {
         console.log(info);
         dispatch(loadAllCourses(info))
     }).catch(err => {
-        window.alert("err");
+        window.alert("server error");
     })
     return (<>
         <Navbar></Navbar>

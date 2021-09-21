@@ -22,15 +22,12 @@ export default function Course(props) {
             ind = index
 
     const handleDelete = (lecturersId, Coursesid, student) => {
-
         deleteStudentFromCourse({ lecturersId, Coursesid, student }).then(res => {
             console.log(res);
         }).catch(err => {
             console.log(err);
-            window.alert("err");
+            window.alert("error server");
         })
-
-        //במקום כל זה צריך פשוט לטעון נתונים מחדש מהשרת פחות קוד ויותר מדיוק כאשר מוחקים כפילויות
         const newstudentAndGrade = []
         var indexChangeCourse = -1;
         for (let index = 0; index < allCoursesUser.length; index++) {
@@ -50,7 +47,11 @@ export default function Course(props) {
 
     const handleAddStudent = (e) => {
         if (isNaN(grade.current.value) || grade.current.value.length > 2 || grade.current.value.length < 1 || isNaN(id.current.value)) {
-            window.alert("error id")
+            window.alert("grade input error")
+            return
+        }
+        if (isNaN(id.current.value)) {
+            window.alert("id input error")
             return
         }
         var flag = true
@@ -74,12 +75,10 @@ export default function Course(props) {
         addStudentToCourse(info).then(info => {
             console.log(info);
         }).catch(err => {
-            window.alert("err");
+            window.alert("error server");
         })
         dispatch(loadAllUserCourses(allCoursesUser))
         dispatch(incremented(1))
-        const input = document.getElementsByClassName('InputInputUser');
-
     }
     const handleAVG = (number) => {
         sumAVG += Number(number)
@@ -97,8 +96,6 @@ export default function Course(props) {
         var course_ = allCoursesUser[ind].studentAndGrade
         var beast = 0
         course_.map(element => {
-            console.log(element.grade)
-            console.log(beast)
             if (Number(element.grade) > Number(beast)) beast = element.grade
         })
         return beast
@@ -123,13 +120,13 @@ export default function Course(props) {
                                         grade
                                     </th>
                                     <th className="trHeadUserCourses">
-                                        delete student
+
                                     </th>
                                 </tr>
                             </thead>
                             {allCoursesUser[ind].studentAndGrade.map(element =>
                                 <tr className="trUserCourses">
-                                    {console.log(element)}
+                                    {handleAVG(element.grade)}
                                     <th className="thUserCourses"> {element.nameStudent}</th>
                                     <th className="thUserCourses"> {element.id_stu}</th>
                                     <th className="thUserCourses"> {element.grade}</th>
@@ -176,100 +173,23 @@ export default function Course(props) {
                         </table>
                     </div>
                 </div>
-            </div>
-        </>
-    );
-}
-/*
- <div className="mainCourse">
-                <br />
-                <div className="tableStudent">
-                    <h1>students</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    student name
-                                </th>
-                                <th>
-                                    student id
-                                </th>
-                                <th>
-                                    grade
-                                </th>
-                                <th>
-                                    delete student
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {allCoursesUser[ind].studentAndGrade.map(element =>
-                                <tr>
-                                    <th>
-                                        {element.nameStudent}
-                                    </th>
-                                    <th>
-                                        {element.id_stu}
-                                    </th>
-                                    <th>
-                                        {element.grade}
-                                        {handleAVG(element.grade)}
-                                    </th>
-                                    <th>
-                                        <button onClick={() => handleDelete(account.lecturersId, allCoursesUser[ind].Coursesid, element)}>delete</button>
-                                    </th>
-                                </tr>
-                            )}
-                            <tr>
-                                <th>
-                                    <input
-                                        placeholder="name"
-                                        required
-                                        className=""
-                                        ref={name}
-                                        id="1"
-                                    />
-                                </th>
-                                <th>
-                                    <input
-                                        placeholder="id"
-                                        required
-                                        className=""
-                                        ref={id}
-                                        id="2"
-                                    />
-                                </th>
-                                <th>
-                                    <input
-                                        placeholder="grade"
-                                        required
-                                        minLength="1"
-                                        className=""
-                                        ref={grade}
-                                        id="3"
-                                    />
-                                </th>
-                                <th>
-                                    <button onClick={handleAddStudent} >
-                                        add Student
-                                    </button>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
                 <div className="Details">
-                    <h1>Details Course</h1>
+                    <h1 className="h1Details">Details Course</h1>
                     <div className="Details-box">
-                        Course average:{sumAVG / allCoursesUser[ind].studentAndGrade.length}
+                        Course average:{sumAVG / Number(allCoursesUser[ind].studentAndGrade.length)}
                         <br />
                         beast grade : {beastGrade()}
                         <br />
                         Fails: {Fails()}
                     </div>
                 </div>
+                <div className="downlodingData">
+                    <button>
+                        downlode Data Course
+                    </button>
+                </div>
             </div>
-
-*/
+        </>
+    );
+}

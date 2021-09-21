@@ -17,7 +17,6 @@
     line-height: 1.2;
     flex-grow: 1;
     margin: 10px;
-    
     background-color: #ffffff;
 }
 .trHeadUserCourses{
@@ -58,4 +57,28 @@
 .deleteButton{
     background-color: #cc2525;
     border: none;
+}
+
+.Details{
+    background-color: #f0f2f59c;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    height: 70vh;
+}
+
+.Details-box{
+    background-color: #d1c6c6;
+    margin-top: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+    color: #000000;
+    background-color: #ffffff59; 
+    
+}
+.h1Details{
+    margin-left: 10vw;
+    
 }

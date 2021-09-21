@@ -9,6 +9,11 @@ export default function AllUserCourses() {
         <>
             <Navbar></Navbar>
             <h1 className="h1_home">Your Courses</h1>
+            <div className="AllUserCourses">
+                <Link to={`/newCourse`}>
+                    new Course
+                </Link>
+            </div>
             <div className="allPage">
                 <div className="containerAllCourses">
                     <div className="allCoursesBox">
@@ -49,29 +54,3 @@ export default function AllUserCourses() {
         </>
     );
 }
-
-
-/*
- <div className="AllUserCourses">
-                <Link to={`/newCourse`}>
-                    new Course
-                </Link>
-            </div>
-
-            <div className="yourCourses">
-                {allCoursesUser.map(element =>
-                    <tr>
-                        {console.log(element)}
-                        <th>name: {element.CoursesName}</th>
-                        <th>id: {element.Coursesid}</th>
-                        <th>
-                            <Link to={`/course/${element.Coursesid}`}>
-                                Details
-                            </Link>
-                        </th>
-                    </tr>
-                )}
-            </div>
-
-
-*/

@@ -18,10 +18,10 @@ export default function Login() {
         dispatch(logIn());
         dispatch(account(user))
       } else {
-        window.alert("משתמש או סיסמא לא תקינים");
+        window.alert("user or password wrong");
       }
     }).catch(err => {
-      window.alert("error");
+      window.alert("server error");
     })
   };
 

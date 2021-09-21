@@ -1,14 +1,9 @@
 import { useRef } from "react";
 import "./Login.css";
-
 import { useSelector, useDispatch } from 'react-redux';
 import { loadAllUserCourses, incremented, account, loadAllCourses } from '../actions/index';
-
-import getUser from "../api/getUser";
 import createCourse from "../api/createCourse";
 import allInfoCourses from "../api/getAllCoursesMoodle";
-
-import getAllUserCourses from "../api/getAllUserCourses";
 import Navbar from "../components/navbar";
 export default function CreateNewCourse() {
     const courseId = useRef();
@@ -31,7 +26,6 @@ export default function CreateNewCourse() {
             "studentAndGrade": [],
             "courseDetails": courseDetails.current.value
         }
-        console.log(info);
         createCourse(info).then(res => {
             console.log(res);
             if (res) {
@@ -39,20 +33,17 @@ export default function CreateNewCourse() {
                 dispatch(loadAllUserCourses(allCoursesUser))
                 window.alert("new course add successfully completed");
             } else {
-                window.alert("err1111111");
+                window.alert("error server response empty");
             }
         }).catch(err => {
-            window.alert("err");
+            window.alert("error server");
         })
         allInfoCourses().then(info => {
-            console.log(info);
             dispatch(loadAllCourses(info))
         }).catch(err => {
-            window.alert("err");
+            window.alert("error server");
         })
-
     }
-
     return (
         <>
             <Navbar></Navbar>

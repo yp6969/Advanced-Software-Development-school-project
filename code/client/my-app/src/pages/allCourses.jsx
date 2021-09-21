@@ -41,18 +41,3 @@ export default function AllCourses() {
         </>
     );
 }
-
-/*
-<div className="containerAllCourses">
-                <table className="tableAllCourses">
-                    {allCourses.namesAndIds.map(element =>
-                        <tr className="trAllCourses">
-                            {console.log(element)}
-                            <th>name: {element.name}</th>
-                            <th>id: {element.Coursesid}</th>
-                        </tr>
-                    )}
-                </table>
-            </div>
-
-*/

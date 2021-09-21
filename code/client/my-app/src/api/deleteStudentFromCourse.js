@@ -15,8 +15,6 @@ export default function deleteStudentFromCourse(data) {
     })
 }
 /*
-
-
   deleteStudentFromCourse(info).then(info => {
     console.log(info);
   }).catch(err => {

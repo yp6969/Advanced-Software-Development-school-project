@@ -1,22 +1,22 @@
 import Navbar from "../components/navbar";
-//import "./profile.css";
 import { useSelector, useDispatch } from 'react-redux';
 
-
+import "./profile.css"
 export default function Profile() {
     const account__ = useSelector(state => state.account)
     return (
         <>
             <Navbar></Navbar>
             <div className="continerProfile">
-                <tr>
-                    <tr> {account__.username}</tr>
-                    <tr>{account__.email} </tr>
+                <div className="boxProfile">
+                    <div className="imgProfile">
 
-                    <img src="../../public/pp.jpg" alt="../../public/pp.jpg" />
-                    <img src="public/pp.jpg" alt="public/pp.jpg" />
-
-                </tr>
+                    </div>
+                    <div className="infoProfile">
+                        <span> {account__.username}</span>
+                        <span>{account__.email} </span>
+                    </div>
+                </div>
             </div>
         </>
     )
