@@ -1,10 +1,10 @@
 const cors = require("cors");
 
 
-const morgan = require("morgan");//npm install morgan - הצגה של פרטי בקשות api בקונסול
-const express = require("express");//npm install express - הגדרת שרת קליל לתפעול
-const mongoose = require("mongoose");//npm install mongose-יכולת לתקשר עם מונגו ויכולת ליצור סכמות ואובייקטים
-const dotenv = require("dotenv");//npm install dotevn - secure access to env file 
+const morgan = require("morgan");
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 const userRoute = require("./router/user");
 const loginRoute = require("./router/login");
@@ -12,7 +12,7 @@ const coursesRoute = require("./router/cours");
 
 
 const port = "5555";
-dotenv.config();//גישה לקובץ env
+dotenv.config();
 
 mongoose.connect(
     process.env.MONGO,

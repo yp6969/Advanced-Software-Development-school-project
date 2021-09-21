@@ -9,13 +9,13 @@ export default function AllUserCourses() {
         <>
             <Navbar></Navbar>
             <h1 className="h1_home">Your Courses</h1>
-            <div className="AllUserCourses">
-                <Link to={`/newCourse`}>
-                    new Course
-                </Link>
-            </div>
             <div className="allPage">
                 <div className="containerAllCourses">
+                    <div className="goCreateCourseButton">
+                        <Link to={`/newCourse`} className="goCreateCourseLink">
+                            new Course
+                        </Link>
+                    </div>
                     <div className="allCoursesBox">
                         <table className="tableAllCourses">
                             <thead>

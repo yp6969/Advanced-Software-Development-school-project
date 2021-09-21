@@ -44,3 +44,16 @@
     font-size: 3vw;
     text-align: center;
 }
+.goCreateCourseButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.goCreateCourseLink{
+    margin-top: 4px;
+    color: rgb(255, 255, 255);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: none;
+    background-color: #36bd32;
+    border-radius: 4px;
+}
