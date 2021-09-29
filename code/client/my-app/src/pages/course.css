@@ -1,18 +1,23 @@
 .containerUserCourses{
-    background-color: #f0f2f59c;
+    background-color: #f0f2f5;
     align-items: center;
     justify-content: center;
     width: 70vw;
     height: 70vh;
+    overflow-y: scroll;
+    position: sticky;
 }
 .UserCoursesBox{
     margin-top: 4vh;
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
 .tableUserCourses{
-    width: 50vw;
+    
+    object-fit: cover;
+   
     text-transform: uppercase;
     line-height: 1.2;
     flex-grow: 1;
@@ -20,7 +25,9 @@
     background-color: #ffffff;
 }
 .trHeadUserCourses{
-    font-size: 3vh;
+    height: 4vh;
+    width: 10vh;
+    font-size: 2vh;
     color: #302c2c;
     background-color: #ffffff; 
 }
@@ -60,7 +67,7 @@
 }
 
 .Details{
-    background-color: #f0f2f59c;
+    background-color: #f0f2f5;
     align-items: center;
     justify-content: center;
     width: 70vw;
@@ -77,8 +84,23 @@
     color: #000000;
     background-color: #ffffff59; 
     
+    
 }
 .h1Details{
     margin-left: 10vw;
     
+}
+.downlodingData{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.buttonDown{
+  margin-top: 10px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: #36bd32;
+    border-radius: 4px;
+    font-size: 25px;
 }

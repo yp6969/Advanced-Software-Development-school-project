@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { account, logOut } from '../actions/index';
+import './navbar.css'
+//import LogoutIcon from '@mui/icons-material/Logout';
+//import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Navbar() {
     const dispatch = useDispatch();
@@ -13,13 +16,14 @@ export default function Navbar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to={"/"}>
-                    Home
-                </Link>
+                <div className="homeDiv">
+                    <Link className="navbar-brand" id="homelink" to={"/"}>
+                        <i class="material-icons" id="home-icon">home</i>
+                        Home
+                    </Link>
+                </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon">
-                        <span class="sr-only">Toggle navigation</span>
-
                     </span>
                 </button>
 
@@ -34,12 +38,12 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to={"/profile"}>profile</Link>
                         </li>
-                        <li className="nav-item">
-                            <button onClick={LogOutAccount} className="nav-link" to={"/not-found"}>
-                                <Link to='/'>LogOut</Link>
-                            </button>
-                        </li>
+
                     </ul>
+                </div>
+                <div className="logoutDiv" onClick={LogOutAccount} to={"/not-found"}>
+                    <i class="material-icons" id="logout-icon">logout</i>
+                    <Link className="dd" to='/'>LogOut</Link>
                 </div>
             </nav >
         </div >

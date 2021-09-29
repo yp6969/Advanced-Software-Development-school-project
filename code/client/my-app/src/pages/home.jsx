@@ -29,7 +29,6 @@ const Home = () => {
         window.alert("server error");
     })
     allInfoCourses().then(info => {
-        console.log(info);
         dispatch(loadAllCourses(info))
     }).catch(err => {
         window.alert("server error");

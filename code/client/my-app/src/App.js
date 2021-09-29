@@ -44,11 +44,9 @@ function App() {
         <Route path="/profile" >
           {user ? <Profile /> : <Redirect to="/" />}
         </Route>
-
         <Route path="/course/:id" component={(props) =>
           <Course  {...props}></Course>}>
         </Route>
-
         <Route path="/not-found" component={NotFound}></Route>
         <Redirect to="/not-found"></Redirect>
       </Switch>

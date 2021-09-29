@@ -1,6 +1,5 @@
-import { useRef } from "react";
 import "./allUserCourses.css";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Navbar from "../components/navbar";
 import { Link } from 'react-router-dom';
 export default function AllUserCourses() {
@@ -10,39 +9,38 @@ export default function AllUserCourses() {
             <Navbar></Navbar>
             <h1 className="h1_home">Your Courses</h1>
             <div className="allPage">
-                <div className="containerAllCourses">
+                <div className="containerAllUserCourses">
                     <div className="goCreateCourseButton">
                         <Link to={`/newCourse`} className="goCreateCourseLink">
-                            new Course
+                            Create a New Course
                         </Link>
                     </div>
-                    <div className="allCoursesBox">
-                        <table className="tableAllCourses">
+                    <div className="allUserCoursesBox">
+                        <table className="tableUserAllCourses">
                             <thead>
-                                <tr className="trHeadHAllCourses">
-                                    <th className="thHeadHAllCourses">
-                                        course name
+                                <tr className="UserTrHeadHAllCourses">
+                                    <th className="UserThHeadHAllCourses">
+                                        name
                                     </th>
-                                    <th className="thHeadHAllCourses">
-                                        course id
+                                    <th className="UserThHeadHAllCourses">
+                                        id
                                     </th>
-                                    <th className="thHeadHAllCourses">
-                                        sum student
+                                    <th className="UserThHeadHAllCourses">
+                                        students
                                     </th>
-                                    <th className="thHeadHAllCourses">
-                                        Details and editing
+                                    <th className="UserThHeadHAllCourses">
+
                                     </th>
                                 </tr>
                             </thead>
                             {allCoursesUser.map(element =>
                                 <tr className="trAllCourses">
-                                    {console.log(element)}
                                     <th className="thAllCourses"> {element.CoursesName}</th>
                                     <th className="thAllCourses"> {element.Coursesid}</th>
-                                    <th className="thAllCourses"> {element.Coursesid}</th>
+                                    <th className="thAllCourses"> {element.studentAndGrade.length}</th>
                                     <th className="thAllCourses">
-                                        <Link to={`/course/${element.Coursesid}`}>
-                                            Details and editing
+                                        <Link to={`/course/${element.Coursesid}`} className="goToCourse">
+                                            Entrance
                                         </Link>
                                     </th>
                                 </tr>

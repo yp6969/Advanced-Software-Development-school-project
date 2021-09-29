@@ -16,13 +16,13 @@ export default function AllCourses() {
                             <thead>
                                 <tr className="trHeadHAllCourses">
                                     <th className="thHeadHAllCourses">
-                                        course name
+                                        name
                                     </th>
                                     <th className="thHeadHAllCourses">
-                                        course id
+                                        id
                                     </th>
                                     <th className="thHeadHAllCourses">
-                                        sum student
+                                        students
                                     </th>
                                 </tr>
                             </thead>

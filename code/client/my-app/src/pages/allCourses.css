@@ -4,11 +4,12 @@
     justify-content: center;
 }
 .containerAllCourses{
-    background-color: #f0f2f59c;
+    background-color: #ffffff;
     align-items: center;
     justify-content: center;
-    width: 70vw;
+    width: 40vw;
     height: 70vh;
+    border-radius: 20px;
 }
 .allCoursesBox{
     margin-top: 4vh;
@@ -18,7 +19,6 @@
 }
 .tableAllCourses{
     width: 50vw;
-    text-transform: uppercase;
     line-height: 1.2;
     flex-grow: 1;
     margin: 10px;
@@ -41,6 +41,7 @@
     background-color: #c6d1d0;
 }
 .h1_home{
+    
     font-family: 'Syncopate', sans-serif;
     color: #ffffff;
     text-transform: uppercase;

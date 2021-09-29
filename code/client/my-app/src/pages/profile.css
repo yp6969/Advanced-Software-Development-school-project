@@ -1,13 +1,35 @@
 .continerProfile{
-    width: 100vw;
-    height: 100vh;
-    background-color: #d4cbcb81;
+   color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10%;
 }
 .boxProfile {
+    width: 20vw;
+    height: 50vh;
+    background-color: #2c379e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    border-radius: 20px;
+}
+.imgProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-
-
+.imgTag{
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+}
+span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7px;
 }

@@ -7,7 +7,7 @@ import { loadAllUserCourses, incremented } from './../actions/index';
 import { useRef, useState } from "react";
 import addStudentToCourse from '../api/addStudentToCourse';
 export default function Course(props) {
-    var sumAVG = 0;
+    var sumAVG = 0, sumStudent = 0;
     const id = useRef();
     const grade = useRef();
     const name = useRef();
@@ -82,6 +82,7 @@ export default function Course(props) {
     }
     const handleAVG = (number) => {
         sumAVG += Number(number)
+        sumStudent++
     }
     const Fails = () => {
         var course_ = allCoursesUser[ind].studentAndGrade
@@ -100,6 +101,32 @@ export default function Course(props) {
         })
         return beast
     }
+    const downloadData = () => {
+        const data = courseDataConvertToCSV()
+        const corseName = allCoursesUser[ind].CoursesName.replace(' ', '')
+        const blob = new Blob([data], { type: 'csv' })
+        const urlBlob = window.URL.createObjectURL(blob)
+        const elementForData = document.createElement('a')
+        elementForData.setAttribute("hidden", "")
+        elementForData.setAttribute("href", urlBlob)
+        elementForData.setAttribute("download", `${corseName}CourseDetails.csv`)
+        document.body.appendChild(elementForData)
+        elementForData.click();
+        document.body.removeChild(elementForData)
+    }
+    const courseDataConvertToCSV = () => {
+        var csvData = []
+        const headers = Object.keys(allCoursesUser[ind].studentAndGrade[0])
+        headers.pop()
+        csvData.push(headers)
+        for (let row of allCoursesUser[ind].studentAndGrade) {
+            const values = headers.map(header => {
+                return `"${row[header]}"`
+            })
+            csvData.push(values)
+        }
+        return csvData.join('\n')
+    }
     return (
         <>
             <Navbar></Navbar>
@@ -111,10 +138,10 @@ export default function Course(props) {
                             <thead>
                                 <tr className="trHeadUserCourses">
                                     <th className="trHeadUserCourses">
-                                        student name
+                                        name
                                     </th>
                                     <th className="trHeadUserCourses">
-                                        student id
+                                        id
                                     </th>
                                     <th className="trHeadUserCourses">
                                         grade
@@ -166,7 +193,7 @@ export default function Course(props) {
                                 </th>
                                 <th className="thUserInputButton">
                                     <button className="inputButton" onClick={handleAddStudent} >
-                                        add Student
+                                        add
                                     </button>
                                 </th>
                             </tr>
@@ -177,17 +204,19 @@ export default function Course(props) {
                 <div className="Details">
                     <h1 className="h1Details">Details Course</h1>
                     <div className="Details-box">
-                        Course average:{sumAVG / Number(allCoursesUser[ind].studentAndGrade.length)}
+                        number of students: {sumStudent}
+                        <br />
+                        Course average:{(sumAVG / Number(allCoursesUser[ind].studentAndGrade.length)).toFixed(2)}
                         <br />
                         beast grade : {beastGrade()}
                         <br />
                         Fails: {Fails()}
                     </div>
-                </div>
-                <div className="downlodingData">
-                    <button>
-                        downlode Data Course
-                    </button>
+                    <div className="downlodingData">
+                        <button onClick={downloadData} className="buttonDown">
+                            downlode Data Course
+                        </button>
+                    </div>
                 </div>
             </div>
         </>

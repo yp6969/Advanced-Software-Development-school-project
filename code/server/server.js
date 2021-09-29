@@ -1,6 +1,5 @@
 const cors = require("cors");
 
-
 const morgan = require("morgan");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,7 +8,6 @@ const dotenv = require("dotenv");
 const userRoute = require("./router/user");
 const loginRoute = require("./router/login");
 const coursesRoute = require("./router/cours");
-
 
 const port = "5555";
 dotenv.config();

@@ -15,8 +15,20 @@ export default function Register() {
     const history = useHistory();
     const handleNewUser = async (e) => {
         e.preventDefault();
+
+        var re = /^[A-Za-z]+$/;
+        if (!re.test(username.current.value)) {
+            window.alert("Name cannot include numbers")
+            return
+        }
+
+
+        if (isNaN(lecturersId.current.value)) {
+            window.alert("id must to be number only")
+            return
+        }
         if (password1.current.value !== password2.current.value) {
-            window.alert("password error")
+            window.alert("password not match")
             return
         }
         const info = {

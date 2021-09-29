@@ -18,8 +18,5 @@
     "mongose": "0.0.2-security",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }

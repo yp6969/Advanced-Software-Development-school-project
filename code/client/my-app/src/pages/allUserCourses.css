@@ -1,27 +1,25 @@
-.containerAllCourses{
-    background-color: #f0f2f59c;
+.containerAllUserCourses{
+    background-color: #ffffff;
     align-items: center;
     justify-content: center;
-    width: 70vw;
-    height: 70vh;
+    width: 30vw;
+    height: 80vh;
+    border-radius: 20px;
 }
-.allCoursesBox{
+.allUserCoursesBox{
     margin-top: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.tableAllCourses{
+.tableUserAllCourses{
     width: 50vw;
-    text-transform: uppercase;
     line-height: 1.2;
     flex-grow: 1;
     margin: 10px;
-    
     background-color: #ffffff;
 }
 .trHeadHAllCourses{
-    
     font-size: 3vh;
     color: #302c2c;
     background-color: #ffffff; 
@@ -50,10 +48,16 @@
     justify-content: center;
 }
 .goCreateCourseLink{
-    margin-top: 4px;
+    margin-top: 10px;
     color: rgb(255, 255, 255);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     background-color: #36bd32;
+    border-radius: 4px;
+    font-size: 25px;
+}
+.goToCourse{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: #292dff;
     border-radius: 4px;
 }

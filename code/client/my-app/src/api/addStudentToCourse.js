@@ -1,8 +1,6 @@
 //addStudentToCourse.
 export default function addStudentToCourse(data) {
   const axios = require('axios');
-  console.log("addStudentToCourse");
-  console.log(data);
   return axios.post('http://localhost:5555/course/addStudentAndGrade',
     {
       "lecturersId": data.lecturersId,
