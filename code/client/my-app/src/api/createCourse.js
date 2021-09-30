@@ -1,31 +1,18 @@
 export default function createCourse(data) {
   const axios = require('axios');
+  console.log(data);
   return axios.post('http://localhost:5555/course/creatCourse',
     {
       "CoursesName": data.CoursesName,
       "Coursesid": data.Coursesid,
       "lecturersIds": data.lecturersIds,
-      "studentAndGrade": data.studentAndGrade || []
+      "studentAndGrade": data.studentAndGrade || [],
+      "courseDetails": data.courseDetails
 
     }).then(function (response) {
       const Course = response.data;
       return Course;
     }).catch(function (error) {
-
       console.log(error);
     })
 }
-/*
- let info = {
-    "CoursesName": "PHP",
-    "Coursesid": "300982",
-    "lecturersIds": ["209338112"],
-  }
-
-  createCourse(info).then(info => {
-    console.log(info);
-  }).catch(err => {
-    window.alert("err");
-  })
-
-*/

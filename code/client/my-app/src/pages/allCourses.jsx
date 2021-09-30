@@ -21,16 +21,12 @@ export default function AllCourses() {
                                     <th className="thHeadHAllCourses">
                                         id
                                     </th>
-                                    <th className="thHeadHAllCourses">
-                                        students
-                                    </th>
                                 </tr>
                             </thead>
                             {allCourses.namesAndIds.map(element =>
                                 <tr className="trAllCourses">
                                     {console.log(element)}
                                     <th className="thAllCourses"> {element.name}</th>
-                                    <th className="thAllCourses"> {element.Coursesid}</th>
                                     <th className="thAllCourses"> {element.Coursesid}</th>
                                 </tr>
                             )}
@@ -41,3 +37,4 @@ export default function AllCourses() {
         </>
     );
 }
+//אפשר להוסיף מספר סטודנטים

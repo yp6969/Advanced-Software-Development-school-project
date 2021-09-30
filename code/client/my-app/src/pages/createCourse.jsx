@@ -33,6 +33,7 @@ export default function CreateNewCourse() {
             "studentAndGrade": [],
             "courseDetails": courseDetails.current.value
         }
+        console.log(info);
         createCourse(info).then(res => {
             console.log(res);
             if (res) {
